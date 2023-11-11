@@ -1,0 +1,115 @@
+# Written by ICEM CFD 22.2, user dspol, Tue Oct 24 19:19:09 W. Europe Daylight Time 2023
+
+begin family WING_POINTS
+    begin solver "Ansys CFX"
+    end solver "Ansys CFX"
+end family WING_POINTS
+
+begin family WING_CURVES
+    begin solver "Ansys CFX"
+    end solver "Ansys CFX"
+end family WING_CURVES
+
+begin family FLAP_POINTS
+    begin solver "Ansys CFX"
+    end solver "Ansys CFX"
+end family FLAP_POINTS
+
+begin family FLAP_CURVES
+    begin solver "Ansys CFX"
+        begin bctype color
+            active 1
+            color 255 1
+        end bctype color
+    end solver "Ansys CFX"
+end family FLAP_CURVES
+
+begin family GEOM
+    begin solver "Ansys CFX"
+        begin bctype color
+            active 1
+            color 16663900 1
+        end bctype color
+    end solver "Ansys CFX"
+end family GEOM
+
+begin family WING
+    begin solver "Ansys CFX"
+        begin bctype color
+            active 1
+            color 16663900 1
+        end bctype color
+    end solver "Ansys CFX"
+end family WING
+
+begin family FLAP
+    begin solver "Ansys CFX"
+        begin bctype color
+            active 1
+            color 16663900 1
+        end bctype color
+    end solver "Ansys CFX"
+end family FLAP
+
+begin family INLET
+    begin solver "Ansys CFX"
+        begin bctype color
+            active 1
+            color 16663900 1
+        end bctype color
+    end solver "Ansys CFX"
+end family INLET
+
+begin family OUTLET
+    begin solver "Ansys CFX"
+        begin bctype color
+            active 1
+            color 16663900 1
+        end bctype color
+    end solver "Ansys CFX"
+end family OUTLET
+
+begin family FAR_FIELD
+    begin solver "Ansys CFX"
+        begin bctype color
+            active 1
+            color 16663900 1
+        end bctype color
+    end solver "Ansys CFX"
+end family FAR_FIELD
+
+begin family RIGHT_SYMMETRY
+    begin solver "Ansys CFX"
+        begin bctype color
+            active 1
+            color 16663900 1
+        end bctype color
+    end solver "Ansys CFX"
+end family RIGHT_SYMMETRY
+
+begin family LEFT_SYMMETRY
+    begin solver "Ansys CFX"
+        begin bctype color
+            active 1
+            color 16663900 1
+        end bctype color
+    end solver "Ansys CFX"
+end family LEFT_SYMMETRY
+
+begin family ADDITIONAL_ELEMENTS
+    begin solver "Ansys CFX"
+        begin bctype color
+            active 1
+            color 16663900 1
+        end bctype color
+    end solver "Ansys CFX"
+end family ADDITIONAL_ELEMENTS
+
+begin family SOLID
+    begin solver "Ansys CFX"
+        begin bctype color
+            active 1
+            color 3403390 1
+        end bctype color
+    end solver "Ansys CFX"
+end family SOLID

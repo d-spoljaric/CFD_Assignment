@@ -1,0 +1,740 @@
+ This run of the CFX 2022 R2 Solver started at 09:37:20 on 11 Nov 2023
+ by user dspol on DESKTOP-N31IODP (intel_xeon64.sse2_winnt) using the
+ command:
+ 
+  "C:\Program Files\ANSYS Inc\v222\CFX\bin\perllib\cfx5solve.pl"
+    -stdout-comms -batch -ccl -
+ 
+ 2022 R2
+ 
+  Point Releases and Patches installed:
+  ANSYS, Inc. License Manager 2022 R2
+  CFX (includes CFD-Post) 2022 R2
+  SpaceClaim 2022 R2
+  ICEM CFD 2022 R2
+ 
+ Setting up CFX Solver run ...
+ 
+ 
+ +--------------------------------------------------------------------+
+ |                                                                    |
+ |                    CFX Command Language for Run                    |
+ |                                                                    |
+ +--------------------------------------------------------------------+
+ 
+ LIBRARY:
+   CEL:
+     EXPRESSIONS:
+       uref = 63.47613934
+     END
+   END
+   MATERIAL: Air at 25 C
+     Material Description = Air at 25 C and 1 atm (dry)
+     Material Group = Air Data, Constant Property Gases
+     Option = Pure Substance
+     Thermodynamic State = Gas
+     PROPERTIES:
+       Option = General Material
+       EQUATION OF STATE:
+         Density = 1.185 [kg m^-3]
+         Molar Mass = 28.96 [kg kmol^-1]
+         Option = Value
+       END
+       SPECIFIC HEAT CAPACITY:
+         Option = Value
+         Specific Heat Capacity = 1.0044E+03 [J kg^-1 K^-1]
+         Specific Heat Type = Constant Pressure
+       END
+       REFERENCE STATE:
+         Option = Specified Point
+         Reference Pressure = 1 [atm]
+         Reference Specific Enthalpy = 0. [J/kg]
+         Reference Specific Entropy = 0. [J/kg/K]
+         Reference Temperature = 25 [C]
+       END
+       DYNAMIC VISCOSITY:
+         Dynamic Viscosity = 1.831E-05 [kg m^-1 s^-1]
+         Option = Value
+       END
+       THERMAL CONDUCTIVITY:
+         Option = Value
+         Thermal Conductivity = 2.61E-02 [W m^-1 K^-1]
+       END
+       ABSORPTION COEFFICIENT:
+         Absorption Coefficient = 0.01 [m^-1]
+         Option = Value
+       END
+       SCATTERING COEFFICIENT:
+         Option = Value
+         Scattering Coefficient = 0.0 [m^-1]
+       END
+       REFRACTIVE INDEX:
+         Option = Value
+         Refractive Index = 1.0 [m m^-1]
+       END
+       THERMAL EXPANSIVITY:
+         Option = Value
+         Thermal Expansivity = 0.003356 [K^-1]
+       END
+     END
+   END
+ END
+ FLOW: Flow Analysis 1
+   SOLUTION UNITS:
+     Angle Units = [rad]
+     Length Units = [m]
+     Mass Units = [kg]
+     Solid Angle Units = [sr]
+     Temperature Units = [K]
+     Time Units = [s]
+   END
+   ANALYSIS TYPE:
+     Option = Steady State
+     EXTERNAL SOLVER COUPLING:
+       Option = None
+     END
+   END
+   DOMAIN: Default Domain
+     Coord Frame = Coord 0
+     Domain Type = Fluid
+     Location = SOLID
+     BOUNDARY: Farfield
+       Boundary Type = WALL
+       Location = FAR_FIELD
+       BOUNDARY CONDITIONS:
+         HEAT TRANSFER:
+           Option = Adiabatic
+         END
+         MASS AND MOMENTUM:
+           Option = Free Slip Wall
+         END
+       END
+     END
+     BOUNDARY: Flap
+       Boundary Type = WALL
+       Location = FLAP
+       BOUNDARY CONDITIONS:
+         HEAT TRANSFER:
+           Option = Adiabatic
+         END
+         MASS AND MOMENTUM:
+           Option = No Slip Wall
+         END
+         WALL ROUGHNESS:
+           Option = Smooth Wall
+         END
+       END
+     END
+     BOUNDARY: Inlet
+       Boundary Type = INLET
+       Location = INLET
+       BOUNDARY CONDITIONS:
+         FLOW REGIME:
+           Option = Subsonic
+         END
+         HEAT TRANSFER:
+           Option = Static Temperature
+           Static Temperature = 293 [K]
+         END
+         MASS AND MOMENTUM:
+           Option = Cartesian Velocity Components
+           U = uref [m s^-1]
+           V = 0 [m s^-1]
+           W = 0 [m s^-1]
+         END
+         TURBULENCE:
+           Option = Low Intensity and Eddy Viscosity Ratio
+         END
+       END
+     END
+     BOUNDARY: Outlet
+       Boundary Type = OUTLET
+       Location = OUTLET
+       BOUNDARY CONDITIONS:
+         FLOW REGIME:
+           Option = Subsonic
+         END
+         MASS AND MOMENTUM:
+           Option = Average Static Pressure
+           Pressure Profile Blend = 0.05
+           Relative Pressure = -2390.571253 [Pa]
+         END
+         PRESSURE AVERAGING:
+           Option = Average Over Whole Outlet
+         END
+       END
+     END
+     BOUNDARY: Symmetry
+       Boundary Type = SYMMETRY
+       Location = RIGHT_SYMMETRY,LEFT_SYMMETRY
+     END
+     BOUNDARY: Wing
+       Boundary Type = WALL
+       Location = WING
+       BOUNDARY CONDITIONS:
+         HEAT TRANSFER:
+           Option = Adiabatic
+         END
+         MASS AND MOMENTUM:
+           Option = No Slip Wall
+         END
+         WALL ROUGHNESS:
+           Option = Smooth Wall
+         END
+       END
+     END
+     DOMAIN MODELS:
+       BUOYANCY MODEL:
+         Option = Non Buoyant
+       END
+       DOMAIN MOTION:
+         Option = Stationary
+       END
+       MESH DEFORMATION:
+         Option = None
+       END
+       REFERENCE PRESSURE:
+         Reference Pressure = 101325 [Pa]
+       END
+     END
+     FLUID DEFINITION: Fluid 1
+       Material = Air at 25 C
+       Option = Material Library
+       MORPHOLOGY:
+         Option = Continuous Fluid
+       END
+     END
+     FLUID MODELS:
+       COMBUSTION MODEL:
+         Option = None
+       END
+       HEAT TRANSFER MODEL:
+         Include Viscous Work Term = True
+         Option = Total Energy
+       END
+       THERMAL RADIATION MODEL:
+         Option = None
+       END
+       TURBULENCE MODEL:
+         Option = k omega
+       END
+       TURBULENT WALL FUNCTIONS:
+         High Speed Model = Off
+         Option = Automatic
+       END
+     END
+   END
+   OUTPUT CONTROL:
+     MONITOR OBJECTS:
+       MONITOR BALANCES:
+         Option = Full
+       END
+       MONITOR FORCES:
+         Option = Full
+       END
+       MONITOR PARTICLES:
+         Option = Full
+       END
+       MONITOR RESIDUALS:
+         Option = Full
+       END
+       MONITOR TOTALS:
+         Option = Full
+       END
+     END
+     RESULTS:
+       File Compression Level = None
+       Option = Standard
+     END
+   END
+   SOLVER CONTROL:
+     Turbulence Numerics = High Resolution
+     ADVECTION SCHEME:
+       Option = High Resolution
+     END
+     CONVERGENCE CONTROL:
+       Length Scale Option = Conservative
+       Maximum Number of Iterations = 1000
+       Minimum Number of Iterations = 1
+       Timescale Control = Auto Timescale
+       Timescale Factor = 1.0
+     END
+     CONVERGENCE CRITERIA:
+       Residual Target = 1e-5
+       Residual Type = RMS
+     END
+     DYNAMIC MODEL CONTROL:
+       Global Dynamic Model Control = On
+     END
+     INTERRUPT CONTROL:
+       Option = Any Interrupt
+       CONVERGENCE CONDITIONS:
+         Option = Default Conditions
+       END
+     END
+   END
+   EXPERT PARAMETERS:
+     vector parallel tolerance = 6.0
+   END
+ END
+ COMMAND FILE:
+   Version = 22.2
+   Results Version = 22.2
+ END
+ SIMULATION CONTROL:
+   EXECUTION CONTROL:
+     EXECUTABLE SELECTION:
+       Double Precision = No
+       Large Problem = No
+     END
+     INTERPOLATOR STEP CONTROL:
+       Runtime Priority = Standard
+       MEMORY CONTROL:
+         Memory Allocation Factor = 1.0
+         Option = Model Based
+       END
+     END
+     PARALLEL HOST LIBRARY:
+       HOST DEFINITION: desktopn31iodp
+         Remote Host Name = DESKTOP-N31IODP
+         Host Architecture String = winnt-amd64
+         Installation Root = C:\Program Files\ANSYS Inc\v%v\CFX
+       END
+     END
+     PARTITIONER STEP CONTROL:
+       Multidomain Option = Automatic
+       Runtime Priority = Standard
+       MEMORY CONTROL:
+         Memory Allocation Factor = 1.0
+         Option = Model Based
+       END
+       PARTITION SMOOTHING:
+         Maximum Partition Smoothing Sweeps = 100
+         Option = Smooth
+       END
+       PARTITIONING TYPE:
+         MeTiS Type = k-way
+         Option = MeTiS
+         Partition Size Rule = Automatic
+         Partition Weight Factors = 0.10000, 0.10000, 0.10000, 0.10000, \
+           0.10000, 0.10000, 0.10000, 0.10000, 0.10000, 0.10000
+       END
+     END
+     RUN DEFINITION:
+       Run Mode = Full
+       Solver Input File = C:/Users/dspol/Desktop/Safety/aoa_6.def
+       Solver Results File = C:\Users\dspol\Desktop\Safety\aoa_6_003.res
+     END
+     SOLVER STEP CONTROL:
+       Runtime Priority = Standard
+       MEMORY CONTROL:
+         Memory Allocation Factor = 1.0
+         Option = Model Based
+       END
+       PARALLEL ENVIRONMENT:
+         Number of Processes = 10
+         Start Method = Intel MPI Local Parallel
+         Parallel Host List = desktopn31iodp*10
+       END
+     END
+   END
+ END
+ 
+ 
+ +--------------------------------------------------------------------+
+ |                                                                    |
+ |                            Partitioning                            |
+ |                                                                    |
+ +--------------------------------------------------------------------+
+ 
+
+
+
+ +--------------------------------------------------------------------+
+ |                                                                    |
+ |                     ANSYS(R) CFX(R) Partitioner                    |
+ |                                                                    |
+ | 2022 R2                                                            |
+ | Build 22.2 2022-05-16T13:53:36.075406                              |
+ | Mon May 16 15:48:02 EDT 2022                                       |
+ |                                                                    |
+ |                        Executable Attributes                       |
+ |                                                                    |
+ |           single-64bit-int32-archfort-optimised-std-lcomp          |
+ |                                                                    |
+ | (C) 1996-2022 ANSYS, Inc.                                          |
+ |                                                                    |
+ | All rights reserved. Unauthorized use, distribution or duplication |
+ | is prohibited. This product is subject to U.S. laws governing      |
+ | export and re-export. For full Legal Notice, see documentation.    |
+ +--------------------------------------------------------------------+
+
+
+
+
+ +--------------------------------------------------------------------+
+ |                  Job Information at Start of Run                   |
+ +--------------------------------------------------------------------+
+
+ Run mode:       partitioning run
+
+ Host computer:  DESKTOP-N31IODP (PID:8392)
+
+ Job started:    Sat Nov 11 09:37:25 2023
+
+ +--------------------------------------------------------------------+
+ |                        License Information                         |
+ +--------------------------------------------------------------------+
+ 
+ License Cap:    ANSYS CFD Solver
+ License ID:     DESKTOP-N31IODP-dspol-7892-000004
+ 
+ License Cap:    ANSYS HPC Parallel
+ License ID:     DESKTOP-N31IODP-dspol-7892-000031
+
+ INFO: You are using an academic license.
+
+
+ +--------------------------------------------------------------------+
+ |         Initial Memory Allocation  (Actual usage may vary)         |
+ +--------------------------------------------------------------------+
+
+           | Real       | Integer    | Character | Logical  | Double
+ ----------+------------+------------+-----------+----------+----------
+ Mwords    |       3.80 |      23.46 |      8.08 |     0.12 |     1.20
+ Mbytes    |      14.50 |      89.51 |      7.70 |     0.46 |     9.16
+ ----------+------------+------------+-----------+----------+----------
+
+
+ +--------------------------------------------------------------------+
+ |            Host Memory Information (Mbytes): Partitioner           |
+ +--------------------------------------------------------------------+
+ |          Host           |     System     |   Allocated    |   %    |
+ +-------------------------+----------------+----------------+--------+
+ | DESKTOP-N31IODP         |     16189.72   |       121.33   |   0.75 |
+ +-------------------------+----------------+----------------+--------+
+
+ +--------------------------------------------------------------------+
+ | The MeTiS partitioning method allocates additional memory.         |
+ | Total memory usage will therefore exceed the values shown above.   |
+ +--------------------------------------------------------------------+
+
+ +--------------------------------------------------------------------+
+ |                       ****** Notice ******                         |
+ |                                                                    |
+ | One or more expert parameters have been enabled. Note that expert  |
+ | parameters are intended for use only by customers who are          |
+ | experienced in the use of CFX, or who have been instructed to use  |
+ | them by ANSYS Customer Support. Use of the parameters is not fully |
+ | supported, and may have unexpected or unintended consequences both |
+ | for the quality of results and the performance of the CFX-Solver.  |
+ +--------------------------------------------------------------------+
+
+ +--------------------------------------------------------------------+
+ |                      Topology Simplification                       |
+ +--------------------------------------------------------------------+
+
+ +--------------------------------------------------------------------+
+ |                       ****** Warning ******                        |
+ |                                                                    |
+ | Topology simplification is activated with the following            |
+ | restrictions:                                                      |
+ |                                                                    |
+ | - Mesh regions referenced only within User Fortran and NOT         |
+ |   in the command file will cause the solver to stop.               |
+ | - The solver will stop during any "Edit Run in Progress" step      |
+ |   if new 2D regions are referenced.                                |
+ +--------------------------------------------------------------------+
+
+ +--------------------------------------------------------------------+
+ |                          Mesh Statistics                           |
+ +--------------------------------------------------------------------+
+
+ Domain Name : Default Domain
+
+     Total Number of Nodes                                =      400216
+
+     Total Number of Elements                             =      199192
+         Total Number of Hexahedrons                      =      199192
+
+     Total Number of Faces                                =      400218
+
+ +--------------------------------------------------------------------+
+ |                     Vertex Based Partitioning                      |
+ +--------------------------------------------------------------------+
+
+ Partitioning of domain: Default Domain
+
+ - Partitioning tool:       MeTiS multilevel k-way algorithm
+ - Number of partitions:            10
+ - Number of graph-nodes:       400216
+ - Number of graph-edges:      1997420
+
+ +--------------------------------------------------------------------+
+ |                 Iso-Partition Connection Statistics                |
+ +--------------------------------------------------------------------+
+ | Domains in Group          |        |           Vertices            |
+ |                           | Smooth +---------+----------+----------+
+ |                           | Sweeps |  Moves  |   <25%   |   <50%   |
+ +---------------------------+--------+---------+----------+----------+
+ | Default Domain            |     1  |       0 |       0  |       0  |
+ +---------------------------+--------+---------+----------+----------+
+
+ +--------------------------------------------------------------------+
+ |                      Partitioning Information                      |
+ +--------------------------------------------------------------------+
+
+ Partitioning information for domain: Default Domain
+
+        +------------------+------------------------+-----------------+
+        |     Elements     |        Vertices        |     Faces       |
+ +------+------------------+------------------------+-----------------+
+ | Part |   Number     %   |   Number     %   %Ovlp |  Number     %   |
+ +------+------------------+------------------------+-----------------+
+ | Full |    199192        |    400216              |   400218        |
+ +------+------------------+------------------------+-----------------+
+ |    1 |     19961    9.9 |     40596    9.9   1.7 |    40240    9.9 |
+ |    2 |     20822   10.3 |     42414   10.3   3.2 |    41732   10.3 |
+ |    3 |     20124   10.0 |     40966   10.0   2.4 |    40470   10.0 |
+ |    4 |     19915    9.9 |     40690    9.9   3.0 |    40070    9.9 |
+ |    5 |     20196   10.0 |     41074   10.0   2.6 |    40546   10.0 |
+ |    6 |     20060    9.9 |     40836    9.9   3.2 |    40178    9.9 |
+ |    7 |     20040    9.9 |     40810    9.9   2.8 |    40240    9.9 |
+ |    8 |     20049    9.9 |     40868    9.9   2.7 |    40308    9.9 |
+ |    9 |     19944    9.9 |     40620    9.9   2.0 |    40204    9.9 |
+ |   10 |     20870   10.3 |     42542   10.3   3.4 |    41822   10.3 |
+ +------+------------------+------------------------+-----------------+
+ | Min  |     19915    9.9 |     40596    9.9   1.7 |    40070    9.9 |
+ |(part)|           (    4)|           (    1     1)|          (    4)|
+ +------+------------------+------------------------+-----------------+
+ | Max  |     20870   10.3 |     42542   10.3   3.4 |    41822   10.3 |
+ |(part)|           (   10)|           (   10    10)|          (   10)|
+ +------+------------------+------------------------+-----------------+
+ | Ave  |     20198   10.0 |     41142   10.0   2.7 |    40581   10.0 |
+ +------+------------------+------------------------+-----------------+
+ | Sum  |    201981  100.0 |    411416  100.0       |   405810  100.0 |
+ +------+------------------+------------------------+-----------------+
+
+
+ +--------------------------------------------------------------------+
+ |            Host Memory Information (Mbytes): Partitioner           |
+ +--------------------------------------------------------------------+
+ |          Host           |     System     |      Peak      |   %    |
+ +-------------------------+----------------+----------------+--------+
+ | DESKTOP-N31IODP         |     16189.72   |       150.49   |   0.93 |
+ +-------------------------+----------------+----------------+--------+
+
+ +--------------------------------------------------------------------+
+ |                CPU Time Requirements of Partitioner                |
+ +--------------------------------------------------------------------+
+ 
+ Preparations                   1.45E-01    2.4 %
+ Low-level Mesh Partitioning    2.69E-01    4.5 %
+ File Reading                   6.69E-01   11.1 %
+ Partition Smoothing            8.60E-02    1.4 %
+ Topology - Domain Interface    1.00E-03    0.0 %
+ Topology - Global              2.80E-02    0.5 %
+ Topology - Element/Face/Patch  1.21E-01    2.0 %
+ Topology - Vertex              6.00E-03    0.1 %
+ Data Compression               2.00E-03    0.0 %
+ Variable Updates               6.00E-03    0.1 %
+ File Writing                   6.10E-02    1.0 %
+ Miscellaneous                  4.61E+00   76.8 %
+                                --------
+ Total                          6.00E+00
+
+ +--------------------------------------------------------------------+
+ |                   Job Information at End of Run                    |
+ +--------------------------------------------------------------------+
+
+ Host computer:  DESKTOP-N31IODP (PID:8392)
+
+ Job finished:   Sat Nov 11 09:37:30 2023
+
+ Total wall clock time: 5.398E+00 seconds
+             or: (          0:         0:         0:     5.398 )
+                 (       Days:     Hours:   Minutes:   Seconds )
+
+ 
+ +--------------------------------------------------------------------+
+ |                                                                    |
+ |                               Solver                               |
+ |                                                                    |
+ +--------------------------------------------------------------------+
+ 
+
+
+
+ +--------------------------------------------------------------------+
+ |                                                                    |
+ |                       ANSYS(R) CFX(R) Solver                       |
+ |                                                                    |
+ | 2022 R2                                                            |
+ | Build 22.2 2022-05-16T13:53:36.075406                              |
+ | Mon May 16 15:48:02 EDT 2022                                       |
+ |                                                                    |
+ |                        Executable Attributes                       |
+ |                                                                    |
+ |           single-64bit-int32-archfort-optimised-std-lcomp          |
+ |                                                                    |
+ | (C) 1996-2022 ANSYS, Inc.                                          |
+ |                                                                    |
+ | All rights reserved. Unauthorized use, distribution or duplication |
+ | is prohibited. This product is subject to U.S. laws governing      |
+ | export and re-export. For full Legal Notice, see documentation.    |
+ +--------------------------------------------------------------------+
+
+
+
+
+ +--------------------------------------------------------------------+
+ |                  Job Information at Start of Run                   |
+ +--------------------------------------------------------------------+
+
+ Run mode:       parallel run (Intel(R) MPI Library 2018 Update 3)
+
+ Job started:    Sat Nov 11 09:37:32 2023
+
+ +--------------------------------------------------------------------+
+ |                        License Information                         |
+ +--------------------------------------------------------------------+
+ 
+ License Cap:    ANSYS CFD Solver
+ License ID:     DESKTOP-N31IODP-dspol-7892-000969
+ 
+ License Cap:    ANSYS HPC Parallel
+ License ID:     DESKTOP-N31IODP-dspol-7892-000980
+
+ INFO: You are using an academic license.
+
+
+ +--------------------------------------------------------------------+
+ |         Initial Memory Allocation  (Actual usage may vary)         |
+ +--------------------------------------------------------------------+
+
+ Allocated storage in:    Mwords
+                          Mbytes
+
+ Partition | Real       | Integer    | Character | Logical  | Double
+ ----------+------------+------------+-----------+----------+----------
+   Minimum |      25.42 |       4.26 |      8.53 |     0.12 |     1.21
+  (     4) |      96.99 |      16.24 |      8.13 |     0.46 |     9.22
+ ----------+------------+------------+-----------+----------+----------
+   Maximum |      25.68 |       4.38 |      8.53 |     0.12 |     1.21
+  (    10) |      97.95 |      16.71 |      8.13 |     0.46 |     9.22
+ ----------+------------+------------+-----------+----------+----------
+   Average |      25.52 |       4.29 |      8.53 |     0.12 |     1.21
+           |      97.37 |      16.38 |      8.13 |     0.46 |     9.22
+ ----------+------------+------------+-----------+----------+----------
+     Total |     255.25 |      42.93 |     85.27 |     1.20 |    12.08
+           |     973.68 |     163.77 |     81.32 |     4.58 |    92.16
+ ----------+------------+------------+-----------+----------+----------
+
+
+ +--------------------------------------------------------------------+
+ |            Host Memory Information (Mbytes): Solver                |
+ +--------------------------------------------------------------------+
+ |           Host         | Npart |   System    |  Allocated  |   %   |
+ +------------------------+-------+-------------+-------------+-------+
+ | DESKTOP-N31IODP        |   10  |    16189.72 |     1315.51 |  8.13 |
+ +------------------------+-------+-------------+-------------+-------+
+
+ +--------------------------------------------------------------------+
+ |                      Process Affinity Summary                      |
+ +--------------------------------------------------------------------+
+
+ Note: Multiple hyperthreads used on   1 hosts.
+
+ +--------------------------------------------------------------------+
+ |                       ****** Notice ******                         |
+ |                                                                    |
+ | One or more expert parameters have been enabled. Note that expert  |
+ | parameters are intended for use only by customers who are          |
+ | experienced in the use of CFX, or who have been instructed to use  |
+ | them by ANSYS Customer Support. Use of the parameters is not fully |
+ | supported, and may have unexpected or unintended consequences both |
+ | for the quality of results and the performance of the CFX-Solver.  |
+ +--------------------------------------------------------------------+
+
+
+ +--------------------------------------------------------------------+
+ |                     ****** Notice ******                           |
+ | The Wall Heat Transfer Coefficient written to the results file for |
+ | any turbulent phase with heat transfer is based on the turbulent   |
+ | wall function coefficient. It is consistent with the Wall Heat Flux|
+ | the wall temperature, and the Wall Adjacent Temperature            |
+ | (near-wall temperature).  If you would like it to be based on a    |
+ | user-specified bulk temperature instead, please set the expert     |
+ | parameter "tbulk for htc = <value>".                               |
+ +--------------------------------------------------------------------+
+
+ +--------------------------------------------------------------------+
+ |                      Topology Simplification                       |
+ +--------------------------------------------------------------------+
+
+ +--------------------------------------------------------------------+
+ |                       ****** Warning ******                        |
+ |                                                                    |
+ | Topology simplification is activated with the following            |
+ | restrictions:                                                      |
+ |                                                                    |
+ | - Mesh regions referenced only within User Fortran and NOT         |
+ |   in the command file will cause the solver to stop.               |
+ | - The solver will stop during any "Edit Run in Progress" step      |
+ |   if new 2D regions are referenced.                                |
+ +--------------------------------------------------------------------+
+ 
+ +--------------------------------------------------------------------+
+ | ERROR #002100013 has occurred in subroutine Chk_Splane.            |
+ | Message:                                                           |
+ | The symmetry boundary condition requires that the boundary patch   |
+ | mesh faces form a plane or axis.  However, face set   6 in the     |
+ | symmetry boundary patch                                            |
+ |                                                                    |
+ |  Symmetry                                                          |
+ |                                                                    |
+ | is not in a strict plane, which means that at least one of its     |
+ | faces is not parallel to the others.  To make the solver run       |
+ | you can do one of the following:                                   |
+ |                                                                    |
+ |  (1) Make sure that this symmetry boundary patch is in a plane or  |
+ |      axis by checking and regenerating the mesh.                   |
+ |  (2) If the symmetry boundary patch is an axis rather than a       |
+ |      plane, change the tolerance of the degeneracy check by        |
+ |      increasing the value of the Solver Expert Parameter           |
+ |      'degeneracy check tolerance' (the default value is 1.e-4).    |
+ |  (3) Increase the value of the Solver Expert Parameter             |
+ |      'vector parallel tolerance' (the default value is 1 deg.).    |
+ |      Note that the accuracy of the symmetry condition may decrease |
+ |      as the tolerance is increased.  This is because the tolerance |
+ |      is the number of degrees that a mesh face normal is allowed   |
+ |      to deviate from the average normal for the entire face set.   |
+ +--------------------------------------------------------------------+
+
+ +--------------------------------------------------------------------+
+ |                An error has occurred in cfx5solve:                 |
+ |                                                                    |
+ | Error deleting                                                     |
+ | C:\Users\dspol\Desktop\Safety\aoa_6_003.dir\handled_errors.txt:    |
+ | Permission denied                                                  |
+ +--------------------------------------------------------------------+
+
+
+ +--------------------------------------------------------------------+
+ |                An error has occurred in cfx5solve:                 |
+ |                                                                    |
+ | The ANSYS CFX solver exited with return code 1.   No results file  |
+ | has been created.                                                  |
+ +--------------------------------------------------------------------+
+
+End of solution stage.
+
+ +--------------------------------------------------------------------+
+ | The following user files have been saved in the directory          |
+ | C:\Users\dspol\Desktop\Safety\aoa_6_003:                           |
+ |                                                                    |
+ | handled_errors.txt, pids                                           |
+ +--------------------------------------------------------------------+
+
+
+This run of the ANSYS CFX Solver has finished.
