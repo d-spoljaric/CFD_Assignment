@@ -1,40 +1,40 @@
 # ICEM CFD Project Settings
-# Saved by Jan Wiacek on JanWiacek on Sat Nov 11 11:46:54 Central European Standard Time 2023
+# Saved by Jan Wiacek on JanWiacek on Sat Nov 11 21:48:12 Central European Standard Time 2023
 # ICEM CFD - version 22.2 - Release date: May 16 2022
 
 array set file_name {
-    catia_dir .
-    parts_dir .
+    catia_dir {C:/Users/Jan Wiacek/Documents/GitHub/CFD_Assignment}
+    parts_dir {C:/Users/Jan Wiacek/Documents/GitHub/CFD_Assignment}
     domain_loaded 1
     cart_file_loaded 0
     cart_file {}
-    domain_saved 6_aoa_fine.uns
+    domain_saved 13_1_aoa_fine.uns
     archive {}
     med_replay {}
-    topology_dir .
-    ugparts_dir .
+    topology_dir {C:/Users/Jan Wiacek/Documents/GitHub/CFD_Assignment}
+    ugparts_dir {C:/Users/Jan Wiacek/Documents/GitHub/CFD_Assignment}
     icons {{$env(ICEM_ACN)/lib/ai_env/icons} {$env(ICEM_ACN)/lib/va/EZCAD/icons} {$env(ICEM_ACN)/lib/icons} {$env(ICEM_ACN)/lib/va/CABIN/icons}}
     tetin 13_1_aoa_fine.tin
     family_boco 13_1_aoa_fine.fbc
-    prism_params 6_aoa_fine.prism_params
-    iges_dir .
+    prism_params 13_1_aoa_fine.prism_params
+    iges_dir {C:/Users/Jan Wiacek/Documents/GitHub/CFD_Assignment}
     solver_params_loaded 1
     attributes_loaded 1
     project_lock {}
     attributes 13_1_aoa_fine.atr
-    domain {}
+    domain 13_1_aoa_fine.uns
     domains_dir .
     settings_loaded 0
     settings 13_1_aoa_fine.prj
     blocking 13_1_aoa_fine.blk
     hexa_replay {}
-    transfer_dir .
-    mesh_dir .
+    transfer_dir {C:/Users/Jan Wiacek/Documents/GitHub/CFD_Assignment}
+    mesh_dir {C:/Users/Jan Wiacek/Documents/GitHub/CFD_Assignment}
     family_topo {}
-    gemsparts_dir .
+    gemsparts_dir {C:/Users/Jan Wiacek/Documents/GitHub/CFD_Assignment}
     family_boco_loaded 1
     tetin_loaded 1
-    project_dir .
+    project_dir {C:/Users/Jan Wiacek/Documents/GitHub/CFD_Assignment}
     topo_mulcad_out {}
     solver_params {}
 }
@@ -241,8 +241,8 @@ array set vid_options {
     vid_mode 0
     DelBlkPerFlag 0
 }
-set savedTreeVisibility {geomNode 1 geom_subsetNode 2 geomPointNode 2 geomCurveNode 2 geomSurfNode 0 blockingNode 1 block_subsetNode 2 block_vertNode 0 block_edgeNode 0 block_faceNode 0 block_blockNode 0 block_meshNode 0 topoNode 2 topo-root 2 partNode 2 part-ADDITIONAL_ELEMENTS 2 part-FAR_FIELD 2 part-FLAP 2 part-FLAP_CURVES 2 part-FLAP_POINTS 2 part-GEOM 2 part-INLET 2 part-LEFT_SYMMETRY 2 part-OUTLET 2 part-RIGHT_SYMMETRY 2 part-SOLID 2 part-VORFN 0 part-WING 2 part-WING_CURVES 2 part-WING_POINTS 2}
-set last_view {rot {0 0 0 1} scale {67.8421716509 67.8421716509 67.8421716509} center {4.4000000953700003 1.0694575309800001 0.49999999999900002} pos {186.721415317 54.6501703366 0}}
+set savedTreeVisibility {geomNode 1 geom_subsetNode 2 geomPointNode 2 geomCurveNode 2 geomSurfNode 0 meshNode 1 mesh_subsetNode 2 meshPointNode 0 meshLineNode 0 meshShellNode 2 meshQuadNode 2 meshVolumeNode 0 meshHexaNode 0 blockingNode 1 block_subsetNode 2 block_vertNode 0 block_edgeNode 0 block_faceNode 0 block_blockNode 0 block_meshNode 0 topoNode 2 topo-root 2 partNode 2 part-ADDITIONAL_ELEMENTS 2 part-FAR_FIELD 2 part-FLAP 2 part-FLAP_CURVES 2 part-FLAP_POINTS 2 part-GEOM 2 part-INLET 2 part-LEFT_SYMMETRY 2 part-OUTLET 2 part-RIGHT_SYMMETRY 2 part-SOLID 2 part-VORFN 0 part-WING 2 part-WING_CURVES 2 part-WING_POINTS 2}
+set last_view {rot {0 0 0 1} scale {29.6966281941 29.6966281941 29.6966281941} center {4.4 1.069455 0.499999999999} pos {0 0 0}}
 array set cut_info {
     active 0
     whole 1
@@ -278,44 +278,6 @@ array set saved_views {
 #------------- DEZ Data ------------------
 
 namespace eval ::AIEnv::GUIManagement::DEZ {
-    array set transformSurfsToolsDEZ_data {
-        this transformSurfsToolsDEZ
-        type curve
-        surfaceList {811 entities}
-        detachFlag 0
-        transfrmSurfsEGVal 1
-        copyTranslateGGVal 0
-        numCopies 1
-        transfrParts {}
-        moveSurfsEGVal 0
-        x 0
-        y 0
-        z 0
-        pointList2 {}
-        movedistance {}
-        copyRotateGGVal 0
-        geomRotateAxisOptionEGVal 2
-        axisSurfList {}
-        rot_angle -7.1
-        RotateGeomCenterEGVal 0
-        rotateCenterPnt {}
-        copyMirrorGGVal 0
-        geomMirrorAxisOptionEGVal 0
-        normPointList {}
-        ReflectGeomCenterEGVal 0
-        reflectCenterPnt {}
-        copyScaleGGVal 0
-        xF 1
-        yF 1
-        zF 1
-        ScaleGeomCenterEGVal 0
-        scaleCenterPnt {}
-        copyAutoGGVal 0
-        transAutoEGVal 0
-        rotateAutoList {}
-        fromLCS {}
-        toLCS {}
-    }
     array set meshPrismDEZ_data {
         this meshPrismDEZ
         type DEZ

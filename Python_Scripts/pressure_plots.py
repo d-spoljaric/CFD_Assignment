@@ -55,10 +55,10 @@ def plot_pressure_coeff(exp_data: np.ndarray, cfd_data = [], cfd = False) -> Non
 
 
 
-wing_exp_6_data = import_data("cp_wing_6.dat", True)
-wing_exp_13_data = import_data("cp_wing_13.dat", True)
-flap_exp_6_data = import_data("cp_flap_6.dat", True)
-flap_exp_13_data = import_data("cp_flap_13.dat", True)
+wing_exp_6_data = import_data("ex_cp_wing_6.dat", True)
+wing_exp_13_data = import_data("ex_cp_wing_13.dat", True)
+flap_exp_6_data = import_data("ex_cp_flap_6.dat", True)
+flap_exp_13_data = import_data("ex_cp_flap_13.dat", True)
 
 wing_cfd_6_data = format_cfd_data(import_data("wing_pressure.csv", False))
 
