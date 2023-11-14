@@ -29,9 +29,9 @@ def format_cfd_data(data: np.ndarray) -> np.ndarray:
 
 
 def plot_residual(res1=[], res2=[], res3=[]) -> None:
-    plt.plot(res1[:, 0], res1[:, 1], linewidth=1.5, color="k", label="AoA 6 coarse mesh")
-    plt.plot(res2[:, 0], res2[:, 1], linewidth=1.5, color="b", label="AoA 6 fine mesh")
-    plt.plot(res3[:, 0], res3[:, 1], linewidth=1.5, color="r", label="AoA 13.1 fine mesh")
+    plt.plot(res1[:, 0], res1[:, 1], linewidth=1.5, color="g", label="SSG 6 AoA fine mesh")
+    plt.plot(res2[:, 0], res2[:, 1], linewidth=1.5, color="b", label="k-omega 6 AoA fine mesh")
+    plt.plot(res3[:, 0], res3[:, 1], linewidth=1.5, color="orange", label="first order upwind 6 AoA fine mesh")
 
     plt.yscale('log')
     plt.legend(fontsize=18)
@@ -49,9 +49,10 @@ res_6_f = format_cfd_data(import_data("residuals_6_f.csv"))
 res_13_f = format_cfd_data(import_data("residual_131_f.csv"))
 res_6_SSG = format_cfd_data(import_data("residual_6_SSG.csv"))
 res_6_upwind = format_cfd_data(import_data("residuals_6_upwind.csv"))
+res_13_SSG = format_cfd_data(import_data("residual_13_SSG.csv"))
 
 
-plot_residual(res_6_c, res_6_f, res_13_f)
+plot_residual(res_6_SSG, res_6_f, res_6_upwind)
 
 
 #print(import_data("Cp_flap_6_c.csv",False))

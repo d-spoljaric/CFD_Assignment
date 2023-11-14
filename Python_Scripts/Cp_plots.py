@@ -61,6 +61,7 @@ flap_cfd_6_f = format_cfd_data(import_data("Cp_flap_6_f.csv", False))
 flap_cfd_13_f = format_cfd_data(import_data("Cp_flap_131_f.csv", False))
 flap_cfd_6_upwind = format_cfd_data(import_data("Cp_flap_6_upwind.csv", False))
 flap_cfd_6_SSG = format_cfd_data(import_data("Cp_flap_6_SSG.csv", False))
+flap_cfd_13_SSG = format_cfd_data(import_data("Cp_flap_13_SSG.csv", False))
 
 #read cfd wing data
 wing_cfd_6_c = format_cfd_data(import_data("Cp_wing_6_c.csv", False))
@@ -68,6 +69,7 @@ wing_cfd_6_f = format_cfd_data(import_data("Cp_wing_6_f.csv", False))
 wing_cfd_13_f = format_cfd_data(import_data("Cp_wing_131_f.csv", False))
 wing_cfd_6_upwind = format_cfd_data(import_data("Cp_wing_6_upwind.csv", False))
 wing_cfd_6_SSG = format_cfd_data(import_data("Cp_wing_6_SSG.csv", False))
+wing_cfd_13_SSG = format_cfd_data(import_data("Cp_wing_13_SSG.csv", False))
 
 
 plot_pressure_coeff(wing_exp_6, wing_cfd_6_c, wing_cfd_6_f, True)
