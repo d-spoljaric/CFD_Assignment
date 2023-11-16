@@ -30,7 +30,7 @@ def format_cfd_data(data: np.ndarray) -> np.ndarray:
 
 def plot_residual(res1=[], res2=[], res3=[]) -> None:
     plt.plot(res1[:, 0], res1[:, 1], linewidth=1.5, color="g", label="SSG 6 AoA fine mesh")
-    plt.plot(res2[:, 0], res2[:, 1], linewidth=1.5, color="b", label="k-omega 6 AoA fine mesh")
+    plt.plot(res2[:, 0], res2[:, 1], linewidth=1.5, color="b", label="$k-omega$ 6 AoA fine mesh")
     plt.plot(res3[:, 0], res3[:, 1], linewidth=1.5, color="orange", label="first order upwind 6 AoA fine mesh")
 
     plt.yscale('log')
