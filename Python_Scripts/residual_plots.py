@@ -35,8 +35,9 @@ def plot_residual(res1=[], res2=[], res3=[]) -> None:
 
     plt.yscale('log')
     plt.legend(fontsize=18)
-    plt.xlabel("Iterations", size=20)
-    plt.ylabel("RMS U-Mom",size=20)
+    plt.xlabel("Iterations", size=22)
+    plt.ylabel("RMS U-Mom",size=22)
+    plt.tick_params(axis='both', labelsize=17)
     plt.grid()
     plt.show()
 
