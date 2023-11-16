@@ -42,8 +42,9 @@ def plot_pressure_coeff(exp_data: np.ndarray, cfd_data1=[], cfd_data2=[], cfd=Fa
 
     plt.legend(fontsize=18)
     plt.gca().invert_yaxis()
-    plt.xlabel("x/c", size=20)
-    plt.ylabel("$c_{p}$",size=20)
+    plt.xlabel("x/c", size=22)
+    plt.ylabel("$c_{p}$",size=22)
+    plt.tick_params(axis='both', labelsize=17)
     plt.grid()
     plt.show()
 
